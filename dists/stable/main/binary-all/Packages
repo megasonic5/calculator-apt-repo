@@ -1,1 +1,14 @@
+Package: calculator
+Version: 1.0.0
+Architecture: all
+Maintainer: Roberto <sonicultra565@gmail.com>
+Depends: default-jre
+Filename: ./calculator_1.0.0.deb
+Size: 1483792
+MD5sum: 2ee251f48090c8ee344e8713c0c41179
+SHA1: 86434c3ab1a980f8d90d775747591ccd9792487a
+SHA256: 0ac5749b9fe4a3173341b941121469ebccde599819ee4cf8bb87a672a06c7429
+Section: utils
+Priority: optional
+Description: Simple calculator app built with Java
 

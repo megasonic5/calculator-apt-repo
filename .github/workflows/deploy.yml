@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy APT repo to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # O usa 'master' si es tu rama principal
+      - main  # usa "master" si tu rama principal se llama así
 
 permissions:
   contents: read
@@ -17,15 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Instalar dependencias y compilar
-        run: |
-          npm install
-          npm run build  # Cambia esto según tu proyecto
-
-      - name: Subir archivos generados
+      - name: Subir archivos del repositorio
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # Cambia a la carpeta que contiene tu HTML generado
+          path: .  # Publica todo, incluido index.html y la carpeta dists
 
       - name: Desplegar en GitHub Pages
         uses: actions/deploy-pages@v4

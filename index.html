@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Repositorio APT</title>
+  <style>
+    body { font-family: sans-serif; }
+    input { padding: 8px; margin-bottom: 10px; width: 100%; max-width: 400px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+  </style>
+</head>
+<body>
 
+  <h1>Repositorio APT</h1>
+  <p>Busca tu paquete:</p>
+  <input type="text" id="buscador" placeholder="Escribe el nombre del paquete..." />
+
+  <ul id="lista">
+    <li><a href="dists/main/arm64/paquete1.deb">paquete1.deb</a></li>
+    <li><a href="dists/main/arm64/calculator_1.0_arm64.deb">calculator_1.0_arm64.deb</a></li>
+    <li><a href="dists/main/arm64/utilidad-extra.deb">utilidad-extra.deb</a></li>
+  </ul>
+
+  <script>
+    const input = document.getElementById("buscador");
+    const lista = document.getElementById("lista");
+    const elementos = lista.getElementsByTagName("li");
+
+    input.addEventListener("input", function () {
+      const texto = this.value.toLowerCase();
+      for (let li of elementos) {
+        const nombre = li.textContent.toLowerCase();
+        li.style.display = nombre.includes(texto) ? "" : "none";
+      }
+    });
+  </script>
+
+</body>
+      </html>

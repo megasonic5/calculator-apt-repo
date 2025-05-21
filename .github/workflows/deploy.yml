@@ -1,1 +1,31 @@
+name: Deploy to GitHub Pages
 
+on:
+  push:
+    branches:
+      - main  # O usa 'master' si es tu rama principal
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias y compilar
+        run: |
+          npm install
+          npm run build  # Cambia esto según tu proyecto
+
+      - name: Subir archivos generados
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist  # Cambia a la carpeta que contiene tu HTML generado
+
+      - name: Desplegar en GitHub Pages
+        uses: actions/deploy-pages@v4
